@@ -63,4 +63,14 @@ export class SessionService {
       },
     });
   }
+
+  async updateCredits(tx: any, sessionId: number, updatedCredits: number, gameOver: boolean) {
+    return tx.session.update({
+      where: { id: sessionId },
+      data: {
+        credits: updatedCredits,
+        status: gameOver ? 'closed' : 'active',
+      },
+    });
+  }
 }
