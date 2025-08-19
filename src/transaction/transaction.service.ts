@@ -25,7 +25,7 @@ export class TransactionService {
         sessionId,
         type: win ? 'ROLL_WIN' : 'ROLL_LOSS',
         symbols: result.join(','),
-        reward: reward || 0,
+        reward: win ? reward : 0, 
       },
     });
   }
